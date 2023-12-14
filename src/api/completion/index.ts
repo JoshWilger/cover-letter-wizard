@@ -12,12 +12,12 @@ const fetchOpenAICompletion = async ({
   question,
   transcript,
 }: CompletionApiProps) => {
-  const { field, experience, lang } = mapSearchParamToValue(searchParams);
+  const { field, experience } = mapSearchParamToValue(searchParams);
 
-  const prompt = generatePrompt(field, experience, lang, question, transcript);
+  const prompt = generatePrompt(field, experience, question, transcript);
   const options = {
-    model: 'text-davinci-003',
-    prompt,
+    model: 'gpt-4',
+    messages: [{role: 'user', content: prompt}],
     temperature: 0.7,
     max_tokens: 1000,
     top_p: 1,
@@ -30,9 +30,9 @@ const fetchOpenAICompletion = async ({
     },
   };
 
-  const { data } = await instance.post('v1/completions', options, config);
+  const { data } = await instance.post('v1/chat/completions', options, config);
 
-  const response = data.choices[0].text.trim();
+  const response = data.choices[0].message.content.trim();
 
   return {
     id: data.id,

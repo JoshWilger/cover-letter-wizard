@@ -35,7 +35,7 @@ const useSpeechRecognition = () => {
   const recognition = new SpeechRecognition();
 
   recognition.continuous = true;
-  recognition.lang = searchParams.get('lang');
+  recognition.lang = "en-US";
   recognition.interimResults = true;
 
   const checkAudioSettings = async () => {

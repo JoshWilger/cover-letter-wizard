@@ -5,9 +5,6 @@ export type Options = {
   experience: {
     [key: string]: string;
   };
-  lang: {
-    [key: string]: string;
-  };
 };
 
 export const options: Options = {
@@ -20,19 +17,6 @@ export const options: Options = {
     starter: 'In school / Studying',
     junior: 'Junior',
     senior: 'Senior',
-  },
-  lang: {
-    'en-US': 'English',
-    'ru-RU': 'Russian',
-    'cmn-Hans-CN': '中文',
-    'hi-IN': 'Hindi',
-    'de-DE': 'Deutsch',
-    'fr-FR': 'Français',
-    'es-AR': 'Español',
-    'pt-BR': 'Português(Brasil)',
-    'pt-PT': 'Português(Portugal)',
-    'ko-KR': '한국어',
-    'ja-JP': '日本語',
   },
 };
 
@@ -54,15 +38,6 @@ export const INTERVIEW_OPTIONS = [
     options: options.experience,
     tooltipContent:
       'Tech Interview GPT will provide feedback and follow up questions based on your work experience.',
-  },
-  {
-    id: 3,
-    label: 'Language',
-    name: 'lang',
-    type: 'dropdown',
-    options: options.lang,
-    tooltipContent:
-      'Select the spoken language when converting speech to text.\n\nYou may type in your answer with the edit option.',
   },
   {
     id: 4,
