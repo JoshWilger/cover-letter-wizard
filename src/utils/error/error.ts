@@ -3,7 +3,6 @@ import { AxiosError } from 'axios';
 // interview options
 export const optionsErrMap = {
   field: 'Development Field',
-  experience: 'Work Experience',
 };
 
 // speech recognition

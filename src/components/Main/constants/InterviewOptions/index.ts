@@ -2,9 +2,6 @@ export type Options = {
   field: {
     [key: string]: string;
   };
-  experience: {
-    [key: string]: string;
-  };
 };
 
 export const options: Options = {
@@ -12,11 +9,6 @@ export const options: Options = {
     fe: 'Front-end',
     be: 'Back-end',
     fullstack: 'Fullstack',
-  },
-  experience: {
-    starter: 'In school / Studying',
-    junior: 'Junior',
-    senior: 'Senior',
   },
 };
 
@@ -29,15 +21,6 @@ export const INTERVIEW_OPTIONS = [
     options: options.field,
     tooltipContent:
       'Tech Interview GPT will ask questions relevant to your development field.',
-  },
-  {
-    id: 2,
-    label: 'Work Experience',
-    name: 'experience',
-    type: 'dropdown',
-    options: options.experience,
-    tooltipContent:
-      'Tech Interview GPT will provide feedback and follow up questions based on your work experience.',
   },
   {
     id: 4,
