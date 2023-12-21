@@ -1,4 +1,4 @@
-const fe = [
+const short = [
   'When building a new web site or maintaining one, can you explain some techniques you have used to increase performance?',
   'Can you describe some SEO best practices or techniques you have used lately?',
   'Can you explain any common techniques or recent issues solved in regards to front-end security?',
@@ -42,7 +42,7 @@ const fe = [
   'What is a promise? Where and how would you use promise?',
 ];
 
-const be = [
+const medium = [
   'What is a RESTful API?',
   'Which best practices would you follow as part of the performance testing process?',
   'Explain what mocking refers to in backend development.',
@@ -80,7 +80,7 @@ const be = [
 ];
 
 export const questions = {
-  fe,
-  be,
-  fullstack: [...fe, ...be],
+  short,
+  medium,
+  long: [...short, ...medium],
 };

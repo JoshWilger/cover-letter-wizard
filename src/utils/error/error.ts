@@ -2,7 +2,9 @@ import { AxiosError } from 'axios';
 
 // interview options
 export const optionsErrMap = {
-  field: 'Development Field',
+  role: 'Wedding Role',
+  occasion: 'Occasion',
+  length: 'Speech Length'
 };
 
 // speech recognition

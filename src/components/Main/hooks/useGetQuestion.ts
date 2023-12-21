@@ -9,8 +9,8 @@ const useGetQuestion = (condition: boolean) => {
 
   const dispatch = useFormDispatch();
 
-  const field = searchParams.get('field');
-  const questionsArr = questions[field as keyof typeof questions];
+  const length = searchParams.get('length');
+  const questionsArr = questions[length as keyof typeof questions];
 
   const handleGetQuestion = (arr: string[]) => {
     const randomQuestionIdx = Math.floor(Math.random() * arr.length);

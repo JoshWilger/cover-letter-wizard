@@ -12,9 +12,9 @@ const fetchOpenAICompletion = async ({
   question,
   transcript,
 }: CompletionApiProps) => {
-  const { field } = mapSearchParamToValue(searchParams);
+  const { role, occasion, length } = mapSearchParamToValue(searchParams);
 
-  const prompt = generatePrompt(field, question, transcript);
+  const prompt = generatePrompt(role, occasion, length, question, transcript);
   const options = {
     model: 'gpt-4',
     messages: [{role: 'user', content: prompt}],
