@@ -17,7 +17,7 @@ const fetchOpenAICompletion = async ({
   const prompt = generatePrompt(role, occasion, length, question, transcript);
   const options = {
     model: 'gpt-4',
-    messages: [{role: 'user', content: prompt}],
+    messages: [{role: 'system', content: prompt}],
     temperature: 0.7,
     max_tokens: 1000,
     top_p: 1,

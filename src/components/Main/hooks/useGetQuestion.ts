@@ -14,7 +14,7 @@ const useGetQuestion = (condition: boolean) => {
 
   const handleGetQuestion = (arr: string[]) => {
     const randomQuestionIdx = Math.floor(Math.random() * arr.length);
-    const randomQuestion = arr[randomQuestionIdx];
+    const randomQuestion = "";
     dispatch({ type: 'FORM/GET_QUESTION', payload: randomQuestion });
   };
 

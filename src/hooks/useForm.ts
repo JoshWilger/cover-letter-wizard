@@ -26,20 +26,30 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
     dispatch({ type: 'FORM/UPDATE_FIELD', payload: { name, value } });
   };
 
-  const handleValidateForm = () => {
+  const handleValidateForm = async () => {
     try {
+      if (!apiKey) throw new Error('Please provide your OpenAI API Key.');
       onValidate(searchParams);
+      const { id, response } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript });
       dispatch({ type: 'FORM/VALIDATION_SUCCESS' });
+      dispatch({ type: 'API/FETCH_SUCCESS', payload: response });
+      saveSession({ id, question: response, transcript, search, response: response });
     } catch (err) {
       if (err instanceof Error) {
         dispatch({ type: 'FORM/VALIDATION_FAIL', payload: err.message });
       }
+      if (err instanceof AxiosError) {
+        dispatch({ type: 'API/FETCH_FAIL', payload: getAxiosError(err)});
+      } else {
+        dispatch({ type: 'API/FETCH_FAIL', payload: (err as Error).message });
+      }
+    } finally {
+      dispatch({ type: 'API/FETCH_COMPLETE' });
     }
   };
   
   const handleSubmitForm = async () => {
     try {
-      if (!apiKey) throw new Error('Please provide your OpenAI API Key.');
       handleValidateForm();
       dispatch({ type: 'API/FETCH_START' });
       const { id, response } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript });

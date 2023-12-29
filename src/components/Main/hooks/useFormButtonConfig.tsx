@@ -17,11 +17,11 @@ const useFormButtonConfig = () => {
   
   const isFormReadyToSubmit = Boolean(transcript) && !isRecording;
 
-  const startInterviewButton = {
+  const startingSpeechButton = {
     id: 1,
     onClickHandler: handleValidateForm,
     variant: 'primary',
-    label: 'Start Interview',
+    label: 'I\'m just starting my speech',
     shouldRender: !isValid,
   };
 
@@ -74,7 +74,7 @@ const useFormButtonConfig = () => {
   };
 
   const formButtonsConfig: FormButtonConfig[] = [
-    startInterviewButton,
+    startingSpeechButton,
     submitButton,
     recordButton,
     editButton,
