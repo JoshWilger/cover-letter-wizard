@@ -32,7 +32,7 @@ const Session = () => {
         src={chatGPT}
         transcript={
           session
-            ? `Question: \n\n ${session.question} \n\n Response: \n\n ${session.response}`
+            ? `${session.conversationContext.map(chat => chat.role.toUpperCase() + '\n' + chat.content + '\n\n')}`
             : `Couldn't find your session history. Try Starting a new Interview.`
         }
       />

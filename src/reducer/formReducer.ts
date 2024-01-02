@@ -10,6 +10,7 @@ export const initialState = {
     question: '',
     transcript: '',
     editedTranscript: '',
+    conversationContext: [{role: '', content: ''}],
   },
   modelResponse: initialResponse,
   isLoading: false,

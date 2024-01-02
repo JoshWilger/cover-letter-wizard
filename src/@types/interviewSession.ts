@@ -4,6 +4,7 @@ export interface Session {
   transcript: string;
   response: string;
   search: string;
+  conversationContext: {role: string, content: string}[];
 }
 
 export interface State {

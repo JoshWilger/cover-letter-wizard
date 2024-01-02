@@ -17,7 +17,7 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
   const dispatch = useFormDispatch();
   const { session, saveSession } = useSession()
 
-  const { formValues : { apiKey, question, transcript, editedTranscript } } = formState;
+  const { formValues : { apiKey, question, transcript, editedTranscript, conversationContext } } = formState;
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,10 +30,11 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
     try {
       if (!apiKey) throw new Error('Please provide your OpenAI API Key.');
       onValidate(searchParams);
-      const { id, response } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript });
+      const { id, response, newContext } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript, conversationContext });
       dispatch({ type: 'FORM/VALIDATION_SUCCESS' });
       dispatch({ type: 'API/FETCH_SUCCESS', payload: response });
-      saveSession({ id, question: response, transcript, search, response: response });
+      saveSession({ id, question: response, transcript, search, response: response, conversationContext: newContext });
+      formState.formValues.conversationContext = newContext // TODO: convert this to use dispatch()
     } catch (err) {
       if (err instanceof Error) {
         dispatch({ type: 'FORM/VALIDATION_FAIL', payload: err.message });
@@ -48,23 +49,23 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
     }
   };
   
-  const handleSubmitForm = async () => {
-    try {
-      handleValidateForm();
-      dispatch({ type: 'API/FETCH_START' });
-      const { id, response } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript });
-      dispatch({ type: 'API/FETCH_SUCCESS', payload: response });
-      saveSession({ id, question, transcript, search, response: response });
-    } catch (err) {
-      if (err instanceof AxiosError) {
-        dispatch({ type: 'API/FETCH_FAIL', payload: getAxiosError(err)});
-      } else {
-        dispatch({ type: 'API/FETCH_FAIL', payload: (err as Error).message });
-      }
-    } finally {
-      dispatch({ type: 'API/FETCH_COMPLETE' });
-    }
-  };
+  // const handleSubmitForm = async () => {
+  //   try {
+  //     handleValidateForm();
+  //     dispatch({ type: 'API/FETCH_START' });
+  //     const { id, response } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript });
+  //     dispatch({ type: 'API/FETCH_SUCCESS', payload: response });
+  //     saveSession({ id, question, transcript, search, response: response });
+  //   } catch (err) {
+  //     if (err instanceof AxiosError) {
+  //       dispatch({ type: 'API/FETCH_FAIL', payload: getAxiosError(err)});
+  //     } else {
+  //       dispatch({ type: 'API/FETCH_FAIL', payload: (err as Error).message });
+  //     }
+  //   } finally {
+  //     dispatch({ type: 'API/FETCH_COMPLETE' });
+  //   }
+  // };
 
   const handleEditMode = () => {
     dispatch({ type: 'FORM/EDIT_START', payload: transcript });
@@ -93,7 +94,7 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
     formState,
     handleChange,
     handleValidateForm,
-    handleSubmitForm,
+    // handleSubmitForm,
     handleEditMode,
     handleSaveEdit,
     handleCancelEdit,

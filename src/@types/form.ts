@@ -5,6 +5,7 @@ export interface FormValues {
   question: string;
   transcript: string;
   editedTranscript: string;
+  conversationContext: {role: string, content: string}[];
 }
 
 export interface State {

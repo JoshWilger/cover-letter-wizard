@@ -3,7 +3,7 @@ import spinner from '@assets/Main/spinner.svg'
 import useForm from '@hooks/useForm';
 import { useFormSelector } from '@store/formContext';
 import useSpeechRecognition from './useSpeechRecognition';
-import useGetQuestion from './useGetQuestion';
+// import useGetQuestion from './useGetQuestion';
 
 type FormButtonConfig = ActionButtonProps & {
   shouldRender: boolean;
@@ -11,9 +11,9 @@ type FormButtonConfig = ActionButtonProps & {
 
 const useFormButtonConfig = () => {
   const { formValues: { transcript }, isValid, isEditing, isLoading, isRetry } = useFormSelector();
-  const { handleValidateForm, handleSubmitForm, handleEditMode, handleSaveEdit, handleCancelEdit } = useForm();
+  const { handleValidateForm, handleEditMode, handleSaveEdit, handleCancelEdit } = useForm();
   const { isRecording, isBrowserUnsupported, mediaDeviceErr, setMediaDeviceErr, startSpeechRecognition, stopSpeechRecognition }= useSpeechRecognition();
-  const { handleGetQuestion } = useGetQuestion(!isRetry && isValid);
+  // const { handleGetQuestion } = useGetQuestion(!isRetry && isValid);
   
   const isFormReadyToSubmit = Boolean(transcript) && !isRecording;
 
@@ -27,7 +27,7 @@ const useFormButtonConfig = () => {
 
   const submitButton = {
     id: 2,
-    onClickHandler: handleSubmitForm,
+    onClickHandler: handleValidateForm,
     variant: 'primary',
     label: isLoading ? <img src={spinner} alt='loading' className='mx-8'/> : 'Submit Answer',
     disabled: isLoading || isEditing || !isFormReadyToSubmit,
@@ -63,15 +63,15 @@ const useFormButtonConfig = () => {
     shouldRender: isValid && isEditing,
   };
 
-  const changeQuestionButton = {
-    id: 6,
-    onClickHandler: handleGetQuestion,
-    variant: 'secondary',
-    label: 'Change question',
-    className: 'absolute right-0 md:static',
-    disabled: isRecording || isEditing || isLoading,
-    shouldRender: isValid,
-  };
+  // const changeQuestionButton = {
+  //   id: 6,
+  //   onClickHandler: handleGetQuestion,
+  //   variant: 'secondary',
+  //   label: 'Change question',
+  //   className: 'absolute right-0 md:static',
+  //   disabled: isRecording || isEditing || isLoading,
+  //   shouldRender: isValid,
+  // };
 
   const formButtonsConfig: FormButtonConfig[] = [
     startingSpeechButton,
@@ -79,7 +79,7 @@ const useFormButtonConfig = () => {
     recordButton,
     editButton,
     cancelEditButton,
-    changeQuestionButton,
+    // changeQuestionButton,
   ];
 
   return { formButtonsConfig };

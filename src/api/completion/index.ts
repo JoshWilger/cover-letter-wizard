@@ -11,13 +11,21 @@ const fetchOpenAICompletion = async ({
   apiKey,
   question,
   transcript,
+  conversationContext,
 }: CompletionApiProps) => {
   const { role, occasion, length } = mapSearchParamToValue(searchParams);
 
   const prompt = generatePrompt(role, occasion, length, question, transcript);
+  if (conversationContext.length < 2) {
+    conversationContext = [{role: 'system', content: prompt}];
+  }
+  else if (transcript) {
+    conversationContext.push({role: 'user', content: transcript})
+  }
+
   const options = {
     model: 'gpt-4',
-    messages: [{role: 'system', content: prompt}],
+    messages: conversationContext,
     temperature: 0.7,
     max_tokens: 1000,
     top_p: 1,
@@ -33,10 +41,13 @@ const fetchOpenAICompletion = async ({
   const { data } = await instance.post('v1/chat/completions', options, config);
 
   const response = data.choices[0].message.content.trim();
+  conversationContext.push({role: 'assistant', content: response})
+  const newContext = conversationContext
 
   return {
     id: data.id,
     response,
+    newContext
   };
 };
 
