@@ -30,17 +30,20 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
     try {
       if (!apiKey) throw new Error('Please provide your OpenAI API Key.');
       onValidate(searchParams);
-      const { id, response, newContext } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript, conversationContext });
       dispatch({ type: 'FORM/VALIDATION_SUCCESS' });
+      dispatch({ type: 'API/FETCH_START' });
+      const { id, response, newContext } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript, conversationContext });
+      if (transcript) { dispatch({ type: 'API/FETCH_SUCCESS', payload: transcript }); }
       dispatch({ type: 'API/FETCH_SUCCESS', payload: response });
       saveSession({ id, question: response, transcript, search, response: response, conversationContext: newContext });
-      formState.formValues.conversationContext = newContext // TODO: convert this to use dispatch()
+      formState.formValues.conversationContext = newContext; // TODO: convert this to use dispatch()
+      formState.formValues.transcript = '';
     } catch (err) {
-      if (err instanceof Error) {
-        dispatch({ type: 'FORM/VALIDATION_FAIL', payload: err.message });
-      }
+
       if (err instanceof AxiosError) {
         dispatch({ type: 'API/FETCH_FAIL', payload: getAxiosError(err)});
+      } else if (err instanceof Error) {
+        dispatch({ type: 'FORM/VALIDATION_FAIL', payload: err.message });
       } else {
         dispatch({ type: 'API/FETCH_FAIL', payload: (err as Error).message });
       }
@@ -52,7 +55,7 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
   // const handleSubmitForm = async () => {
   //   try {
   //     handleValidateForm();
-  //     dispatch({ type: 'API/FETCH_START' });
+      // dispatch({ type: 'API/FETCH_START' });
   //     const { id, response } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript });
   //     dispatch({ type: 'API/FETCH_SUCCESS', payload: response });
   //     saveSession({ id, question, transcript, search, response: response });

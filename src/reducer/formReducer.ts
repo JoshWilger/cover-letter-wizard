@@ -2,7 +2,7 @@ import type { Reducer } from 'react';
 import type { State, Action } from '@@types/form';
 
 const initialResponse =
-  'Welcome to Wedding Wordsmith!\nBefore we start, tell me more about yourself by filling out the options above. Then click a button for whether you\'re starting your speech for the first time or have one to improve.';
+  ['Welcome to Wedding Wordsmith!\nBefore we start, tell me more about yourself by filling out the options above. Then click a button for whether you\'re starting your speech for the first time or have one to improve.'];
 
 export const initialState = {
   formValues: {
@@ -27,15 +27,15 @@ export const formReducer: Reducer<State, Action> = (
     case 'API/FETCH_START':
       return { ...state, isLoading: true };
     case 'API/FETCH_SUCCESS':
-      return { ...state, modelResponse: payload };
+      return { ...state, modelResponse: [payload, ...state.modelResponse] };
     case 'API/FETCH_FAIL':
-      return { ...state, modelResponse: payload };
+      return { ...state, modelResponse: [payload, ...state.modelResponse] };
     case 'API/FETCH_COMPLETE':
       return { ...state, isLoading: false };
     case 'FORM/VALIDATION_SUCCESS':
       return { ...state, isValid: true };
     case 'FORM/VALIDATION_FAIL':
-      return { ...state, modelResponse: payload };
+      return { ...state, modelResponse: [payload, ...state.modelResponse] };
     case 'FORM/UPDATE_FIELD':
       return {
         ...state,
@@ -61,7 +61,7 @@ export const formReducer: Reducer<State, Action> = (
           transcript: '',
           editedTranscript: '',
         },
-        modelResponse: payload,
+        modelResponse: [payload, ...state.modelResponse],
         isRetry: false,
       };
     case 'FORM/EDIT_START':
@@ -97,7 +97,7 @@ export const formReducer: Reducer<State, Action> = (
       return {
         ...state,
         formValues: { ...state.formValues, question: payload },
-        modelResponse: payload,
+        modelResponse: [payload, ...state.modelResponse],
         isValid: true,
         isRetry: true,
       };

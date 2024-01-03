@@ -15,8 +15,6 @@ export const generatePrompt = (
   role: string,
   occasion: string,
   length: string,
-  question: string,
-  transcript: string
 ) => {
   const prompt = `You are a seasoned speechwriter and ceremony planner with over 20 years of experience, 
   specializing in crafting personalized wedding speeches and ceremonies. 
@@ -41,8 +39,7 @@ export const generatePrompt = (
   Additional Instructions: 
   Feel free to ask follow-up questions for more details. 
   Focus on quality and take the time needed to craft a meaningful speech or ceremony script. 
-  If the task becomes too complex, summarize the context to maintain clarity and focus.
-  This will be the first interview question: ${question} This will be the response from the interviewee: ${transcript}.`
+  If the task becomes too complex, summarize the context to maintain clarity and focus.`
 
   return prompt;
 };

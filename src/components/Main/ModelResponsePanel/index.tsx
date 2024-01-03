@@ -12,12 +12,13 @@ const ModelResponsePanel = () => {
   const responsePanelRef = useRef(null);
 
   const { modelResponse, isLoading } = useFormSelector();
-  const { text: modelMessage, isAnimating } = useTypingEffect(modelResponse);
+  const { text: modelMessage, isAnimating } = useTypingEffect(modelResponse[0]);
   const { count } = useIncrementTimeout(isLoading, loaderElements.length);
 
-  useScrollToRef(responsePanelRef, isLoading || modelMessage.length, count);
+  // useScrollToRef(responsePanelRef, isLoading || modelMessage.length, count);
 
   return (
+    modelResponse.map((message, id) =>
     <section className="flex w-[950px] xl:w-[730px] lg:w-[100%] lg:px-[40px] md:px-[20px] sm:px-[10px]">
       <img
         src={ChatGPT}
@@ -26,8 +27,8 @@ const ModelResponsePanel = () => {
       />
       <div className="flex flex-col justify-center w-full min-h-[50px] p-4 sm:p-2 border border-border-default leading-6 rounded-md shadow-sectionInput">
         <span className="whitespace-pre-line sm:text-sm">
-          {isLoading ? <Loader count={count} /> : modelMessage}
-          {isAnimating && (
+          {isLoading && id === 0 ? <Loader count={count} key={id} /> : message}
+          {isAnimating && id === 0 && (
             <img
               src={Flicker}
               alt="flicker"
@@ -38,6 +39,7 @@ const ModelResponsePanel = () => {
       </div>
       <div ref={responsePanelRef} />
     </section>
+    )
   );
 };
 

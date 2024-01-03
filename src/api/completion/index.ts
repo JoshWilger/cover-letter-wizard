@@ -9,14 +9,13 @@ interface CompletionApiProps extends Omit<FormValues, 'editedTranscript'> {
 const fetchOpenAICompletion = async ({
   searchParams,
   apiKey,
-  question,
   transcript,
   conversationContext,
 }: CompletionApiProps) => {
-  const { role, occasion, length } = mapSearchParamToValue(searchParams);
 
-  const prompt = generatePrompt(role, occasion, length, question, transcript);
   if (conversationContext.length < 2) {
+    const { role, occasion, length } = mapSearchParamToValue(searchParams);
+    const prompt = generatePrompt(role, occasion, length);
     conversationContext = [{role: 'system', content: prompt}];
   }
   else if (transcript) {

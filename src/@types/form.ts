@@ -10,7 +10,7 @@ export interface FormValues {
 
 export interface State {
   formValues: FormValues;
-  modelResponse: string;
+  modelResponse: string[];
   isLoading: boolean;
   isValid: boolean;
   isEditing: boolean;
