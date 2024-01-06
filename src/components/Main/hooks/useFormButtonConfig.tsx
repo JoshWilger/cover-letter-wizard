@@ -63,6 +63,14 @@ const useFormButtonConfig = () => {
     shouldRender: isValid && isEditing,
   };
 
+  const speechFeedbackButton = {
+    id: 6,
+    onClickHandler: handleValidateForm,
+    variant: 'secondary',
+    label: 'I\'m looking for feedback on a speech I have',
+    shouldRender: !isValid,
+  }
+
   // const changeQuestionButton = {
   //   id: 6,
   //   onClickHandler: handleGetQuestion,
@@ -79,6 +87,7 @@ const useFormButtonConfig = () => {
     recordButton,
     editButton,
     cancelEditButton,
+    speechFeedbackButton,
     // changeQuestionButton,
   ];
 

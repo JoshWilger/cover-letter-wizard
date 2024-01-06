@@ -17,7 +17,7 @@ export default {
         'border-dark': 'rgb(17 24 39 / 0.5)',
       },
       textDecorationColor: {
-        green: '#16a34a',
+        orange: '#c98300',
         sky: '#0ea5e9',
       },
       boxShadow: {
