@@ -4,6 +4,7 @@ import { mapSearchParamToValue, generatePrompt } from './completion.utils';
 
 interface CompletionApiProps extends Omit<FormValues, 'editedTranscript'> {
   searchParams: URLSearchParams;
+  isFeedback: boolean;
 }
 
 const fetchOpenAICompletion = async ({
@@ -11,11 +12,13 @@ const fetchOpenAICompletion = async ({
   apiKey,
   transcript,
   conversationContext,
+  isFeedback,
 }: CompletionApiProps) => {
 
   if (conversationContext.length < 2) {
     const { role, occasion, length } = mapSearchParamToValue(searchParams);
-    const prompt = generatePrompt(role, occasion, length);
+    const prompt = generatePrompt(role, occasion, length, isFeedback);
+    isFeedback = false;
     conversationContext = [{role: 'system', content: prompt}];
   }
   else if (transcript) {

@@ -10,8 +10,8 @@ type FormButtonConfig = ActionButtonProps & {
 };
 
 const useFormButtonConfig = () => {
-  const { formValues: { transcript }, isValid, isEditing, isLoading, isRetry } = useFormSelector();
-  const { handleValidateForm, handleEditMode, handleSaveEdit, handleCancelEdit } = useForm();
+  const { formValues: { transcript }, isValid, isEditing, isLoading } = useFormSelector();
+  const { handleValidateForm, handleFeedbackForm, handleEditMode, handleSaveEdit, handleCancelEdit } = useForm();
   const { isRecording, isBrowserUnsupported, mediaDeviceErr, setMediaDeviceErr, startSpeechRecognition, stopSpeechRecognition }= useSpeechRecognition();
   // const { handleGetQuestion } = useGetQuestion(!isRetry && isValid);
   
@@ -65,7 +65,7 @@ const useFormButtonConfig = () => {
 
   const speechFeedbackButton = {
     id: 6,
-    onClickHandler: handleValidateForm,
+    onClickHandler: handleFeedbackForm,
     variant: 'secondary',
     label: 'I\'m looking for feedback on a speech I have',
     shouldRender: !isValid,

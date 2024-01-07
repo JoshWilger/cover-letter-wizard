@@ -13,7 +13,7 @@ const Heading = () => {
         for brides, grooms, officiants, and beyond
       </p>
       <div className="px-20 md:px-3">
-        <p className="text-l px-20 sm:px-0 font-light text-center" >
+        <p className="text-l px-20 md:px-0 text-center" >
           Our speechwriting assistant blends advanced technology with expert insights from professional speechwriters 
           and linguists, ensuring each speech is both well-structured and emotionally compelling. Its intuitive
           interface enhances your original ideas, transforming them into beautifully crafted, resonant speeches.
