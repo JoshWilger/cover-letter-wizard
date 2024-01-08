@@ -1,7 +1,6 @@
 import type { MouseEventHandler, ReactNode } from 'react';
 
 export interface FormValues {
-  apiKey: string;
   question: string;
   transcript: string;
   editedTranscript: string;

@@ -6,7 +6,6 @@ const initialResponse =
 
 export const initialState = {
   formValues: {
-    apiKey: '',
     question: '',
     transcript: '',
     editedTranscript: '',

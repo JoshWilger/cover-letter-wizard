@@ -17,7 +17,7 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
   const dispatch = useFormDispatch();
   const { session, saveSession } = useSession()
 
-  const { formValues : { apiKey, question, transcript, editedTranscript, conversationContext } } = formState;
+  const { formValues : { question, transcript, editedTranscript, conversationContext } } = formState;
   let isFeedback = false;
 
   const handleChange = (
@@ -29,11 +29,10 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
 
   const handleValidateForm = async () => {
     try {
-      if (!apiKey) throw new Error('Please provide your OpenAI API Key.');
       onValidate(searchParams);
       dispatch({ type: 'FORM/VALIDATION_SUCCESS' });
       dispatch({ type: 'API/FETCH_START' });
-      const { id, response, newContext } = await fetchOpenAICompletion({ searchParams, apiKey, question, transcript, conversationContext, isFeedback });
+      const { id, response, newContext } = await fetchOpenAICompletion({ searchParams, question, transcript, conversationContext, isFeedback });
       if (transcript) { dispatch({ type: 'API/FETCH_SUCCESS', payload: transcript }); }
       dispatch({ type: 'API/FETCH_SUCCESS', payload: response });
       saveSession({ id, question: response, transcript, search, response: response, conversationContext: newContext });
