@@ -2,10 +2,11 @@ import type { Reducer } from 'react';
 import type { State, Action } from '@@types/form';
 
 const initialResponse =
-  ['Welcome to Wedding Wordsmith!\nBefore we start, tell me more about yourself by filling out the options above. Then click a button for whether you\'re starting your speech for the first time or have one to improve.'];
+  ['Greetings from the Cover Letter Wizard!\nBefore we start, tell me more about yourself by filling out the options above. Then click a button for whether you\'re starting your cover letter for the first time or have one to improve.'];
 
 export const initialState = {
   formValues: {
+    apiKey: '',
     question: '',
     transcript: '',
     editedTranscript: '',

@@ -10,8 +10,8 @@ export default {
     },
     extend: {
       colors: {
-        primary: '#4f46e5',
-        secondary: '#6366f1',
+        primary: '#053dad',
+        secondary: '#6387f1',
         'secondary-hover': 'rgb(0 0 0 / 0.05)',
         'border-default': 'rgb(0 0 0 / 0.1)',
         'border-dark': 'rgb(17 24 39 / 0.5)',

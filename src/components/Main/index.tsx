@@ -8,7 +8,7 @@ const Main = () => {
       <InterviewOptionsPanel />
       <div className="flex flex-col items-center gap-10 sm:gap-14 w-full">
         <UserRequestPanel />
-        <ModelResponsePanel />
+        {ModelResponsePanel()}
         <div className="flex flex-col items-center gap-4 sm:gap-10 w-full">
           <h4 className="font-bold text-3xl">How it works</h4>
           <div className="flex flex-col gap-4 px-5 text-left">

@@ -21,7 +21,7 @@ const useFormButtonConfig = () => {
     id: 1,
     onClickHandler: handleValidateForm,
     variant: 'primary',
-    label: 'I\'m just starting my speech',
+    label: 'I\'m starting from scratch',
     shouldRender: !isValid,
   };
 
@@ -67,7 +67,7 @@ const useFormButtonConfig = () => {
     id: 6,
     onClickHandler: handleFeedbackForm,
     variant: 'secondary',
-    label: 'I\'m looking for feedback on a speech I have',
+    label: 'I\'m looking to enhance a cover letter I have',
     shouldRender: !isValid,
   }
 

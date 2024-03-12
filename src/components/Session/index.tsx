@@ -4,7 +4,7 @@ import MainLayout from '@components/common/Layout/Main';
 import DialogueInput from '@components/common/DialogueInput';
 import ActionButton from '@components/common/Button';
 import user from '@assets/Main/user.svg';
-import logo from '@assets/Main/logo-icon.svg';
+import logo from '@assets/Main/logo-dark.svg';
 // import useForm from '@hooks/useForm';
 import useSession from '@hooks/useSession';
 
