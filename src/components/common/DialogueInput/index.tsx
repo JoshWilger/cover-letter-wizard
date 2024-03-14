@@ -23,11 +23,11 @@ const DialogueInput = ({
           name="editedTranscript"
           value={editedTranscript}
           onChange={handleChange}
-          className="flex flex-col justify-center w-full min-h-[200px] p-4 sm:p-2 mb-8 sm:text-sm border border-black/10 leading-6 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary shadow-sectionInput bg-[#fffcf5]"
+          className="flex flex-col justify-center w-full min-h-[200px] p-4 sm:p-2 mb-8 sm:text-sm border border-white/10 leading-6 rounded-md focus:outline-none focus:ring-2 focus:ring-secondary shadow-sectionInput bg-[#818cdb]"
           autoFocus
         />
       ) : (
-        <div className="flex flex-col justify-center w-full min-h-[50px] p-4 sm:p-2 mb-8 sm:text-sm border border-black/10 leading-6 rounded-md whitespace-pre-line shadow-sectionInput bg-[#fffcf5]">
+        <div className="flex flex-col justify-center w-full min-h-[50px] p-4 sm:p-2 mb-8 sm:text-sm border border-white/10 leading-6 rounded-md whitespace-pre-line shadow-sectionInput bg-[#818cdb]">
           <p>{transcript}</p>
         </div>
       )}

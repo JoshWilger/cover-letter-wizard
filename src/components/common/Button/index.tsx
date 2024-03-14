@@ -17,7 +17,7 @@ const ActionButton = ({
   const buttonClasses =
     variant === 'primary'
       ? 'bg-primary text-white hover:bg-secondary'
-      : 'text-black border border-solid border-border-default hover:bg-secondary-hover';
+      : 'text-white border border-solid border-border-default border-slate-50 hover:bg-secondary-hover';
 
   useOnClickOutside(
     buttonRef,

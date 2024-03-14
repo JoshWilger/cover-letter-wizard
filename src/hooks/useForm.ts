@@ -29,6 +29,7 @@ const useForm = (retryQuestionCallback?: VoidFunction) => {
 
   const handleValidateForm = async () => {
     try {
+      // if (!apiKey) throw new Error('Please provide your OpenAI API Key.');
       onValidate(searchParams);
       dispatch({ type: 'FORM/VALIDATION_SUCCESS' });
       dispatch({ type: 'API/FETCH_START' });

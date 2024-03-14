@@ -1,20 +1,17 @@
-import type { Options } from '@components/Main/constants/InterviewOptions';
-import { options } from '@components/Main/constants/InterviewOptions';
+// import type { Options } from '@components/Main/constants/InterviewOptions';
+// import { options } from '@components/Main/constants/InterviewOptions';
 
-export const mapSearchParamToValue = (searchParams: URLSearchParams) => {
-  const searchParamValues: { [key: string]: string } = {};
+// export const mapSearchParamToValue = (searchParams: URLSearchParams) => {
+//   const searchParamValues: { [key: string]: string } = {};
 
-  for (const [key, value] of searchParams) {
-    searchParamValues[key] = options[key as keyof Options][value];
-  }
+//   for (const [key, value] of searchParams) {
+//     searchParamValues[key] = options[key as keyof Options][value];
+//   }
 
-  return searchParamValues;
-};
+//   return searchParamValues;
+// };
 
 export const generatePrompt = (
-  role: string,
-  occasion: string,
-  length: string,
   isFeedback: boolean,
 ) => {
   const prompt = isFeedback ? 

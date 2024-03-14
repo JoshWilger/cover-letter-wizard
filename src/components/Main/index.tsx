@@ -9,7 +9,7 @@ const Main = () => {
       <div className="flex flex-col items-center gap-10 sm:gap-14 w-full">
         <UserRequestPanel />
         {ModelResponsePanel()}
-        <div className="flex flex-col items-center gap-4 sm:gap-10 w-full">
+        <div className="flex flex-col items-center gap-4 sm:gap-10 w-full text-slate-200">
           <h4 className="font-bold text-3xl">How it works</h4>
           <div className="flex flex-col gap-4 px-5 text-left">
             <p>1. Start the conversation by selecting one of the above prompts</p>

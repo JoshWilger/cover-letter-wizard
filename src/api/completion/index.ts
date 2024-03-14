@@ -1,6 +1,6 @@
 import type { FormValues } from '@@types/form';
 import instance from '@api';
-import { mapSearchParamToValue, generatePrompt } from './completion.utils';
+import { generatePrompt } from './completion.utils';
 
 interface CompletionApiProps extends Omit<FormValues, 'editedTranscript'> {
   searchParams: URLSearchParams;
@@ -8,7 +8,7 @@ interface CompletionApiProps extends Omit<FormValues, 'editedTranscript'> {
 }
 
 const fetchOpenAICompletion = async ({
-  searchParams,
+  // searchParams,
   apiKey,
   transcript,
   conversationContext,
@@ -16,8 +16,8 @@ const fetchOpenAICompletion = async ({
 }: CompletionApiProps) => {
 
   if (conversationContext.length < 2) {
-    const { role, occasion, length } = mapSearchParamToValue(searchParams);
-    const prompt = generatePrompt(role, occasion, length, isFeedback);
+    // const { role, occasion, length } = mapSearchParamToValue(searchParams);
+    const prompt = generatePrompt( isFeedback);
     isFeedback = false;
     conversationContext = [{role: 'system', content: prompt}];
   }
