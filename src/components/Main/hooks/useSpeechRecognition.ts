@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 import { useFormDispatch } from '@store/formContext';
 import { speechRecognitionErrMap } from '@utils/error/error';
 
@@ -15,7 +15,7 @@ const useSpeechRecognition = () => {
   const [mediaDeviceErr, setMediaDeviceErr] = useState(
     isBrowserUnsupported ? speechRecognitionErrMap['unsupported'] : ''
   );
-  const [searchParams] = useSearchParams();
+  // const [searchParams] = useSearchParams();
 
   const dispatch = useFormDispatch();
 
