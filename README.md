@@ -1,27 +1,27 @@
 <br>
 <p align="center">
-<a href="https://tech-interview-gpt.vercel.app/" target="_blank" rel="noopener">
-<img width="539" alt="tech-interview-gpt" src="https://github.com/moonkorea00/moonkorea/assets/78708082/1a8284ef-79c3-4879-854c-00da859dc6d6">
+<a href="https://joshwilger.github.io/cover-letter-wizard/" target="_blank" rel="noopener">
+<img width="400" alt="cover-letter-wizard" src="src/assets/Main/logo-dark.svg">
 </a>
 
 </p>
 
 <p align="center">
-  Speech to text <b>mock tech interview</b> powered by <b>ChatGPT</b> 🧑‍💻👩‍💻👨‍💻
+  Speech to text <b>cover letter writing interview</b> powered by <b>ChatGPT 4</b> 🧑‍💻👩‍💻👨‍💻
 </p>
 
 <p align="center">
-  <a href="https://tech-interview-gpt.vercel.app/" target="_blank" rel="noopener">try Tech Interview GPT</a>
+  <a href="https://tech-interview-gpt.vercel.app/" target="_blank" rel="noopener">try Cover Letter Wizard</a>
 </p>
 
 <br>
 
 ## Features
 
-- 🧑‍💻 **Interview Feedback** - Provides in depth <b>feedback</b> powered by <b>ChatGPT</b>.
-- 🛠 **Customizable** - Get questions and feedback based on your <b>development field</b>, <b>work experience</b> and choice of <b>spoken language</b>.
-- 🎙 **Speech Recognition** - <b>Record</b> and <b>edit</b> answer using <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API" target="_blank" rel="noopener"><b>speech recognition</b>(<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#browser_compatibility" target="_blank" rel="noopener">See browser compatibility</a>)</a>.
-- 📝 **Interview Log** - Automatically save interview to <b>history</b> for user to see previous interviews and <b>retry</b> on request.
+- 🧑‍💻 **Cover Letter Feedback** - Provides in depth <b>feedback</b> and <b>improved revisions</b> for cover letters powered by <b>ChatGPT 4</b>.
+- 🛠 **Customized Interviews** - Questions asked by the Wizard will be based on previous answers given.
+- 🎙 **Speech Recognition** - <b>Record</b> and <b>edit</b> answers using <b>speech recognition</b> (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#browser_compatibility" target="_blank" rel="noopener">See browser compatibility</a>).
+- 📝 **Interview Log** - Automatically saves the interview <b>history</b> for viewing previous interviews.
 - 💻 **Device Friendly** - <b>responsive design</b> for various devices.
 
 <br>
@@ -30,7 +30,7 @@
 
 ### Try it Online
 
-[Tech Interview GPT](https://tech-interview-gpt.vercel.app/)
+[Cover Letter Wizard](https://joshwilger.github.io/cover-letter-wizard/)
 
 ### Init Project Locally
 
@@ -50,42 +50,6 @@ npm run start
 
 <br>
 
-## Demo
-
-- **Select Interview Options**
-
-![options](https://github.com/moonkorea00/moonkorea/assets/78708082/4d582932-9940-4310-809c-2fa51ec8e0a4)
-
-
-- **Record/Edit Answer**
-
-![speech_recognition](https://github.com/moonkorea00/tech-interview-GPT/assets/78708082/e6226cfe-18fa-457e-9475-2e811a739220)
-
-
-- **Get Interview Feedback**
-
-![feedback](https://github.com/moonkorea00/moonkorea/assets/78708082/f55de37f-c5b2-4d70-9246-cdb5f47a33df)
-
-
-- **View History and Retry Interview**
-
-![history](https://github.com/moonkorea00/moonkorea/assets/78708082/588d1cd5-6cf6-4aba-be8e-3cbb54ea74c4)
-
-
-<br>
-
-## Releases
-
-### 1.0.0
-
-Initial Release
-
-### 1.0.1
-
-Check user's browser compatibility for web speech API
-
-<br>
-
 ## License
 
-MIT License © 2023 [Jeewon Moon](https://github.com/moonkorea00)
+MIT License © 2024 [Josh Wilger](https://github.com/joshwilger)
