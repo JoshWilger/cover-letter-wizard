@@ -31,13 +31,13 @@ const Session = () => {
       :
        <div className="flex flex-col items-center gap-10 w-full mb-6">
         <ActionButton
-          onClickHandler={() => navigate('/')}
+          onClickHandler={() => navigate('/cover-letter-wizard/')}
           variant="primary"
           label={'Start new interview'}
         />
         <DialogueInput
             src={logo}
-            transcript={`Couldn't find your session history. Try Starting a new Interview.`}
+            transcript={`Couldn't find your session history. Try starting a new interview.`}
           />
       </div>
       }

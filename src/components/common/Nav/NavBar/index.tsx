@@ -21,7 +21,7 @@ const NavBar = () => {
           className="h-[40px] py-1 hover:opacity-60 cursor-pointer"
           onClick={() => setIsNavListVisible(prev => !prev)}
         />
-        <Link to="/" >
+        <Link to="/cover-letter-wizard/" >
           <span className="text-[#E4E7EB] text-4xl sm:text-3xl" onClick={toggleNavBar}>&#43;</span>
         </Link>
       </div>

@@ -14,10 +14,10 @@ import Session from '@components/Session';
 const Router = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<RootLayout />}>
+      <Route path="/cover-letter-wizard/" element={<RootLayout />}>
         <Route index element={<Main />} />
         <Route path=":id" element={<Session />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="*" element={<Navigate to="/cover-letter-wizard/" replace />} />
       </Route>
     )
   );
