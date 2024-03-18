@@ -18,7 +18,7 @@
 
 ## Features
 
-- 🧑‍💻 **Cover Letter Feedback** - Provides in depth <b>feedback</b> and <b>improved revisions</b> for cover letters powered by <b>ChatGPT 4</b>.
+- 🧑‍💻 **Cover Letter Feedback** - Provides in-depth <b>feedback</b> and <b>improved revisions</b> for cover letters powered by <b>ChatGPT 4</b>.
 - 🛠 **Customized Interviews** - Questions asked by the Wizard will be based on previous answers given.
 - 🎙 **Speech Recognition** - <b>Record</b> and <b>edit</b> answers using <b>speech recognition</b> (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API#browser_compatibility" target="_blank" rel="noopener">See browser compatibility</a>).
 - 📝 **Interview Log** - Automatically saves the interview <b>history</b> for viewing previous interviews.
