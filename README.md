@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <a href="https://tech-interview-gpt.vercel.app/" target="_blank" rel="noopener">try Cover Letter Wizard</a>
+  <a href="https://joshwilger.github.io/cover-letter-wizard/" target="_blank" rel="noopener">try Cover Letter Wizard</a>
 </p>
 
 <br>
